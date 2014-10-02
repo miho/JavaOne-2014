@@ -1,7 +1,7 @@
 JavaOne-2014
 ============
 
-## How to Build javaone2014
+## How to Build It
 
 ### Requirements
 
