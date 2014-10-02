@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.dbf.doselab.ui.MainUIController">
+<children><TitledPane animated="false" collapsible="false" layoutX="46.0" layoutY="27.0" prefHeight="149.0" prefWidth="750.0" text="Suche" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="25.0">
+  <content>
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="139.0" prefWidth="201.0">
+<children><Label layoutX="22.0" layoutY="14.0" text="Tierart" /><Label layoutX="22.0" layoutY="53.0" text="Wirkstoff" /><Label layoutX="22.0" layoutY="93.0" text="Indikation" /><TextField fx:id="speciesField" layoutX="99.0" layoutY="9.0" onAction="#onSearchRequest" />
+<TextField fx:id="substanceField" layoutX="99.0" layoutY="48.0" onAction="#onSearchRequest" />
+<TextField fx:id="indicationField" layoutX="99.0" layoutY="88.0" onAction="#onSearchRequest" />
+</children></AnchorPane>
+  </content>
+</TitledPane><TitledPane animated="false" collapsible="false" layoutX="25.0" layoutY="194.0" prefHeight="380.0" prefWidth="506.0" text="Ergebnisse" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="600.0" AnchorPane.topAnchor="190.0">
+  <content>
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+<children><ListView fx:id="searchResults" layoutX="155.0" layoutY="76.5" prefHeight="353.0" prefWidth="510.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+</children></AnchorPane>
+  </content>
+</TitledPane><TitledPane animated="false" collapsible="false" layoutX="557.0" layoutY="194.0" prefHeight="374.0" prefWidth="555.0" text="Details" AnchorPane.bottomAnchor="25.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="190.0">
+  <content>
+    <AnchorPane fx:id="detailedView" minHeight="0.0" minWidth="0.0" prefHeight="774.0" prefWidth="553.0" />
+  </content>
+</TitledPane>
+</children></AnchorPane>

@@ -1,0 +1,79 @@
+apply plugin: 'java'
+
+buildscript {
+    repositories {
+        mavenCentral()
+        mavenLocal()
+        maven {
+            url "https://oss.sonatype.org/content/repositories/snapshots"
+        }
+    }
+    dependencies {
+        //classpath "eu.mihosoft.g4j:g4j:0.1-r1-SNAPSHOT"
+        //classpath "eu.mihosoft.g4j.gradle:g4j-plugin:0.1-r1-SNAPSHOT"
+        
+        classpath fileTree (dir: 'lib/', includes: ['*.jar'])
+    }
+}
+
+sourceCompatibility = '1.8'
+[compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
+
+// NetBeans will automatically add "run" and "debug" tasks relying on the
+// "mainClass" property. You may however define the property prior executing
+// tasks by passing a "-PmainClass=<QUALIFIED_CLASS_NAME>" argument.
+//
+// Note however, that you may define your own "run" and "debug" task if you
+// prefer. In this case NetBeans will not add these tasks but you may rely on
+// your own implementation.
+if (!hasProperty('mainClass')) {
+    ext.mainClass = 'eu.mihosoft.vrl.v3d.contours.Main'
+}
+
+repositories {
+    mavenCentral()
+    // You may define additional repositories, or even remove "mavenCentral()".
+    // Read more about repositories here:
+    //   http://www.gradle.org/docs/current/userguide/dependency_management.html#sec:repositories
+}
+
+dependencies {
+    // TODO: Add dependencies here ...
+    // You can read more about how to add dependency here:
+    //   http://www.gradle.org/docs/current/userguide/dependency_management.html#sec:how_to_declare_your_dependencies
+    testCompile group: 'junit', name: 'junit', version: '4.10'
+    
+    //compile 'net.imagej:ij:1.49e'
+//     compile fileTree (dir: 'lib/', includes: ['*.jar'])
+      compile fileTree (dir: 'lib/', includes: ['*.jar'])
+      
+    compile 'org.jfxtras:jfxtras-common:8.0-r1'
+    
+    compile project(':javaone2014-core')
+
+}
+
+jar {
+    manifest.attributes(['Main-Class':mainClass])
+    
+    
+    // dependencies except VRL
+    from configurations.runtime.asFileTree.
+
+        files.collect { zipTree(it) }
+
+    // project class files compiled from source
+    from files(sourceSets.main.output.classesDir)
+}
+
+
+if (!project.plugins.findPlugin(eu.mihosoft.g4j.gradle.G4JPlugin)) {
+    project.apply(plugin: eu.mihosoft.g4j.gradle.G4JPlugin)
+   
+}
+
+g4j.g4jPackageName = "eu.mihosoft.vrl.visolines"
+
+ compileJava.doFirst {
+     tasks.g4j.execute()
+ }

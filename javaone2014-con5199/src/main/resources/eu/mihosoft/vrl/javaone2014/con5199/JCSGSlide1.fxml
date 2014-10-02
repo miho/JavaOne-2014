@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" maxWidth="1.7976931348623157E308" minHeight="-1.0" style="-fx-background-color: transparent;&#10;-fx-padding: 0 0 -100 0;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="eu.mihosoft.javaone2014.con5199.JCSGUnionController">
+  <stylesheets>
+    <URL value="@../resources/slide-style-light.css" />
+  </stylesheets>
+<children><TextArea fx:id="output" layoutX="540.0" layoutY="762.0" prefWidth="1280.0" stylesheets="@transparentBackground.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="700.0" /><StackPane fx:id="view" layoutX="640.0" layoutY="80.0" prefHeight="583.0" prefWidth="604.0" AnchorPane.leftAnchor="640.0" AnchorPane.rightAnchor="36.0" /><TitledPane layoutX="1125.0" layoutY="14.0" prefHeight="207.0" prefWidth="122.0" text="IDE Tools" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="14.0">
+  <content>
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="176.0">
+<children><Button layoutX="28.0" layoutY="128.0" mnemonicParsing="false" onAction="#onCase3" text="Case 3" AnchorPane.leftAnchor="21.0" AnchorPane.rightAnchor="21.0" /><Button layoutX="28.0" layoutY="77.0" mnemonicParsing="false" onAction="#onCase2" prefHeight="26.0" prefWidth="97.0" text="Case 2" AnchorPane.leftAnchor="21.0" AnchorPane.rightAnchor="21.0" /><Button layoutX="21.0" layoutY="21.0" mnemonicParsing="false" onAction="#onCase1" prefHeight="26.0" prefWidth="97.0" text="Case 1" AnchorPane.leftAnchor="21.0" AnchorPane.rightAnchor="21.0" />
+</children></AnchorPane>
+  </content>
+</TitledPane><AnchorPane fx:id="editorContainer" layoutX="83.87525939941406" layoutY="71.94447326660156" minHeight="400.0" minWidth="600.0" prefHeight="200.0" prefWidth="700.0" stylesheets="@transparentBackground.css" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="150.0" AnchorPane.topAnchor="150.0" />
+</children>
+</AnchorPane>

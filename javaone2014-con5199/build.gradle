@@ -1,0 +1,29 @@
+// use "-PmainClass=<QUALIFIED_CLASS_NAME>" argument to specify a different
+// main class.
+if (!hasProperty('mainClass')) {
+    ext.mainClass = 'eu.mihosoft.javaone2014.con5199.Main'
+}
+
+dependencies {
+
+    compile project(":javaone2014-core")
+}
+
+jar {
+
+    // dependencies except VRL
+    from configurations.runtime.asFileTree.
+        files.collect { zipTree(it) }
+
+    // project class files compiled from source
+    from files(sourceSets.main.output.classesDir)
+    
+    manifest { attributes 'Main-Class': mainClass }
+}
+
+task run(type: JavaExec) {
+    classpath = sourceSets.main.runtimeClasspath
+    main = mainClass;
+//    jvmArgs = ['-Dprism.forceGPU=true', '-Dprism.verbose=true']
+    jvmArgs = ['-Dprism.forceGPU=true']
+}

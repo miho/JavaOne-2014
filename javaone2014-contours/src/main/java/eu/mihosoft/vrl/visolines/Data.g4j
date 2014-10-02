@@ -1,0 +1,66 @@
+public class Data<<T>> {
+    private T[] data;
+    private int width;
+    private int height;
+
+    private static Data<<float>> fData;
+     private static Data<<float>> dData;
+
+    public Data<<T>>() {
+       //
+    }
+
+    public Data<<T>>(int width, int height) {
+       setData(new T[width*height],width,height);
+    }
+
+    public Data<<T>>(T[] data, int width, int height) {
+       setData(data,width,height);
+    }
+    
+    public final void setData(T[] data, int width, int height) {
+        this.data = data;
+        if (data.length != width*height) {
+            throw new IllegalArgumentException("Data argument, width and height do not match. Data.length!=width*height.");
+        }
+        this.width = width;
+        this.height = height;
+    }
+    
+    public T[] getData() {
+        return this.data;
+    }
+    
+    public int getWidth() {return width;}
+    public int getHeight(){return height;}
+
+    public T get(int x, int y) {
+        return data[y*width+x];
+    }
+
+    public void set(T value, int x, int y) {
+        data[y*width+x] = value;
+    }
+
+    public void plus(T value, int x, int y) {
+        data[y*width+x] += value;
+    }
+
+    public void minus(T value, int x, int y) {
+        data[y*width+x] -= value;
+    }
+
+    public void times(T value, int x, int y) {
+        data[y*width+x] *= value;
+    }
+
+    public void divide(T value, int x, int y) {
+        data[y*width+x] /= value;
+    }
+
+    public boolean isEmpty() {
+        return data.length==0;
+    }
+
+
+}

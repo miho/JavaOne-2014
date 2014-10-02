@@ -1,0 +1,43 @@
+
+repositories {
+    mavenCentral()
+    maven {
+        url "https://oss.sonatype.org/content/repositories/snapshots"
+    }
+}
+
+dependencies {
+    compile "org.codehaus.groovy:groovy:2.3.6"
+    compile "com.google.guava:guava:14.0"
+    
+    compile fileTree (dir: 'lib/antlr', includes: ['*.jar'])
+}
+
+sourceSets {
+    main {
+        java {
+            srcDirs = ['src/']
+        }
+        
+        resources {
+            srcDirs = ['src/']
+        }
+    }
+
+    test {
+        java {
+            srcDirs = ['test/']
+        }
+    }
+}
+
+
+task antlr {
+    def cmd = "java -jar lib/antlr/antlr-4.1-complete.jar -visitor src/eu/mihosoft/vrl/ide/Java.g4";
+    
+    def proc = cmd.execute(null,projectDir as File)
+
+    proc.in.eachLine {line -> println line}
+    proc.err.eachLine {line -> System.err.println( 'ERROR: ' + line)}
+    proc.waitFor()
+}
