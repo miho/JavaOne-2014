@@ -1,14 +1,16 @@
 
 repositories {
     mavenCentral()
-    maven {
-        url "https://oss.sonatype.org/content/repositories/snapshots"
-    }
+//    maven {
+//        url "https://oss.sonatype.org/content/repositories/snapshots"
+//    }
 }
 
 dependencies {
     compile "org.codehaus.groovy:groovy:2.3.6"
     compile "com.google.guava:guava:14.0"
+    
+    compile fileTree (dir: '../lib/vrl', includes: ['*.jar'])
     
     compile fileTree (dir: 'lib/antlr', includes: ['*.jar'])
 }

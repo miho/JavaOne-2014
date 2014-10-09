@@ -69,7 +69,7 @@ public class Main extends SlideApplication {
 
         presentation.addSlide(new ImageSlide(PREFIX + "pow-api.png"));
         
-        Slide[] xbees = new Slide[34];
+        Slide[] xbees = new Slide[11];
         
         DecimalFormat numberFormat = new DecimalFormat("000");
         

@@ -5,6 +5,8 @@ if (!hasProperty('mainClass')) {
 }
 
 dependencies {
+    
+    compile fileTree (dir: '../lib/vrl', includes: ['*.jar'])
 
     compile project(":javaone2014-core")
 }

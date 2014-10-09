@@ -9,7 +9,8 @@ repositories {
 
 
 dependencies {
-    compile ( 'eu.mihosoft.vrl.workflow-8.0:vworkflows-fx:0.1-r2-SNAPSHOT' ) { changing = true }
+    compile fileTree (dir: '../lib/vrl', includes: ['*.jar'])
+    
     compile "org.codehaus.groovy:groovy:2.3.6"
      
     compile project (":javaone2014-mathutils")

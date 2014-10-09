@@ -21,6 +21,8 @@ dependencies {
     //compile group: 'eu.mihosoft.vrl', name: 'vrl-lang', version: '0.5.0-SNAPSHOT', changing: true
     compile fileTree (dir: './lib/vrl', includes: ['*.jar'])
     
+    compile fileTree (dir: './lib/enzo', includes: ['*.jar'])
+    
     
     compile "org.codehaus.groovy:groovy:2.3.6"
     
