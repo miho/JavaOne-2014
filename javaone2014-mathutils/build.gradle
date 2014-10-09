@@ -1,8 +1,16 @@
 apply plugin: 'java'
 
+//repositories {
+//    maven {
+//        url "https://oss.sonatype.org/content/repositories/snapshots"
+//    }
+//}
+
 dependencies {
-     compile ( 'eu.mihosoft.vrl.workflow-8.0:vworkflows-fx:0.1-r2-SNAPSHOT' ) { changing = true }
-     compile "org.codehaus.groovy:groovy:2.1.3"
+     //compile ( 'eu.mihosoft.vrl.workflow-8.0:vworkflows-fx:0.1-r2-SNAPSHOT' ) { changing = true }
+     compile "org.codehaus.groovy:groovy:2.3.6"
+
+    compile fileTree (dir: '../lib/vrl', includes: ['*.jar'])
 }
 
 sourceSets {
