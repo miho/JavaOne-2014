@@ -1,6 +1,8 @@
 JavaOne-2014
 ============
 
+![](resources/img/j1-2014-01.png)
+
 ## How to Build It
 
 ### Requirements
