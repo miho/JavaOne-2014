@@ -1,4 +1,22 @@
-// use "-PmainClass=<QUALIFIED_CLASS_NAME>" argument to specify a different
+/**
+ ******************  Script Configuration ******************
+ */
+buildscript {
+  repositories {
+    mavenLocal()
+    maven {
+      url "http://sandec.bintray.com/repo"
+    }
+    jcenter()
+  }
+
+  dependencies {
+    classpath 'com.jprotechnologies.jpro:jpro-plugin-gradle:2017.1.0-SNAPSHOT'
+  }
+}
+// 
+// 
+// // use "-PmainClass=<QUALIFIED_CLASS_NAME>" argument to specify a different
 // main class.
 if (!hasProperty('mainClass')) {
     ext.mainClass = 'eu.mihosoft.vrl.javaone2014.con2951.Main'
@@ -30,10 +48,37 @@ jar {
     manifest { attributes 'Main-Class': mainClass }
 }
 
-task run(type: JavaExec) {
-    classpath = sourceSets.main.runtimeClasspath
-    main = mainClass;
-    //    jvmArgs = ['-Dprism.forceGPU=true', '-Dprism.verbose=true']
-    jvmArgs = ['-Dprism.forceGPU=true']
+//task run(type: JavaExec) {
+//    classpath = sourceSets.main.runtimeClasspath
+//    main = mainClass;
+//    //    jvmArgs = ['-Dprism.forceGPU=true', '-Dprism.verbose=true']
+//    jvmArgs = ['-Dprism.forceGPU=true']
+//}
+
+/**
+ ******************  jpro Configuration ******************
+ */
+apply plugin: 'com.jprotechnologies.jpro'
+
+jproStartCommand {
+  //jvmArgs '-agentlib:jdwp=transport=dt_socket,server=y,address=5006,suspend=y'
 }
 
+/**
+ * App Main Class
+ */
+mainClassName = mainClass
+
+jpro {
+  //jpro server port
+  useGradleLogging = true
+  port = 8080
+
+  //wenn mehrere Stags über eine main() gestartet werden
+  //useMainMethod=true
+
+  //jpro version
+  jproVersion = "2017.1.0-SNAPSHOT"
+
+  openingPath = "/test/fullscreen/default"
+}
